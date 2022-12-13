@@ -54,7 +54,8 @@ def generate_launch_description():
         remappings=[
             ("basic_command", "/vehicle/vehicle_command"),
             ("raw_command", "/vehicle/raw_command"),
-            ("state_command", "/vehicle/state_command")
+            ("state_command", "/vehicle/state_command"),
+            ("auto_basic_command", "/vehicle/auto_vehicle_command")
         ])
 
     return LaunchDescription([
