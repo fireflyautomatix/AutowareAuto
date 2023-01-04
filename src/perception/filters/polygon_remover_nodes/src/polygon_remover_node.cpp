@@ -53,7 +53,7 @@ PolygonRemoverNode::PolygonRemoverNode(const rclcpp::NodeOptions & options)
         &PolygonRemoverNode::callback_cloud,
         this,
         std::placeholders::_1))},
-  will_visualize_{declare_parameter("will_visualize").get<bool8_t>()}
+  will_visualize_{declare_parameter("will_visualize", true)}
 {
   auto make_point = [](float x, float y, float z) {
       geometry_msgs::msg::Point32 point_32;
@@ -63,7 +63,7 @@ PolygonRemoverNode::PolygonRemoverNode(const rclcpp::NodeOptions & options)
       return point_32;
     };
 
-  std::string working_mode_str{declare_parameter("working_mode").get<std::string>()};
+  std::string working_mode_str{declare_parameter("working_mode", "PolygonSub")};
 
   std::map<std::string, WorkingMode> map_string_to_working_mode_{
     {"Static", WorkingMode::kStatic},
