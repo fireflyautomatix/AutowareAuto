@@ -88,7 +88,7 @@ PolygonRemoverNode::PolygonRemoverNode(const rclcpp::NodeOptions & options)
     case WorkingMode::kStatic: {
         // Set polygon from static input
         std::vector<double> polygon_vertices{
-          declare_parameter("polygon_vertices").get<std::vector<double>>()};
+          declare_parameter("polygon_vertices", {})};
 
         if (polygon_vertices.size() % 2 != 0) {
           throw std::length_error(
